@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Available Books - MyLibrary</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: #f8f9fa;
+    }
+    main {
+      flex: 1;
+    }
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 15px 0;
+    }
+    .search-input::placeholder {
+      color: #888;
+    }
+  </style>
+  <script>
+    function filterBooks() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#booksTable tbody tr");
+      rows.forEach(row => {
+        const title = row.cells[0].innerText.toLowerCase();
+        const author = row.cells[1].innerText.toLowerCase();
+        row.style.display = (title.includes(input) || author.includes(input)) ? '' : 'none';
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand" href="/">MyLibrary</a>
+    <div class="ms-auto">
+      <a href="javascript:history.back()" class="btn btn-outline-light btn-sm">← Back</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="mb-0">Books Available</h4>
+      <input type="text" id="searchInput" class="form-control w-50 search-input" placeholder="Search by title or author..." onkeyup="filterBooks()">
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover mb-0" id="booksTable">
+            <thead class="table-dark">
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Return Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for book in books %}
+              <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                  {% if book.available %}
+                    <span class="badge bg-success">Available</span>
+                  {% else %}
+                    <span class="badge bg-warning text-dark">Borrowed</span>
+                  {% endif %}
+                </td>
+                <td>{{ book.return_date if book.return_date else '-' }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <small>© 2025 MyLibrary — A Project by Rajendra</small>
+    </div>
+  </footer>
+
+</body>
+</html>

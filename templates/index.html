@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyLibrary - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+      background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    }
+    main {
+      flex: 1;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') center/cover no-repeat;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    .feature-card {
+      transition: all 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .info-section {
+      background-color: #f1f1f1;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 15px 0;
+    }
+    .btn-custom {
+      min-width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <a class="navbar-brand animate__animated animate__fadeInLeft" href="/">📚 MyLibrary</a>
+    <div class="ms-auto animate__animated animate__fadeInRight">
+      <a class="btn btn-outline-light btn-sm me-2 btn-custom" href="/login">Login</a>
+      <a class="btn btn-outline-light btn-sm me-2 btn-custom" href="/books">Books</a>
+      <a class="btn btn-outline-light btn-sm btn-custom" href="/contact">Contact Admin</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero animate__animated animate__fadeInDown">
+      <h1 class="display-4 fw-bold mb-3">Welcome to MyLibrary</h1>
+      <p class="lead">Your Smart Digital Library — Borrow, Explore, and Manage with Ease</p>
+      <a href="/books" class="btn btn-light btn-lg mt-3 shadow">Explore Books</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container my-5 animate__animated animate__fadeInUp">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card feature-card shadow-sm border-0 h-100 text-center p-3">
+            <div class="card-body">
+              <i class="bi bi-journal-bookmark fs-2 text-primary"></i>
+              <h5 class="card-title text-primary fw-bold mt-2">Easy Borrowing</h5>
+              <p class="card-text text-muted">Search, borrow, and track your books quickly and securely.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card feature-card shadow-sm border-0 h-100 text-center p-3">
+            <div class="card-body">
+              <i class="bi bi-bar-chart-line fs-2 text-primary"></i>
+              <h5 class="card-title text-primary fw-bold mt-2">Real-Time Inventory</h5>
+              <p class="card-text text-muted">Know which books are available instantly with live updates.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card feature-card shadow-sm border-0 h-100 text-center p-3">
+            <div class="card-body">
+              <i class="bi bi-gear-fill fs-2 text-primary"></i>
+              <h5 class="card-title text-primary fw-bold mt-2">Admin Panel</h5>
+              <p class="card-text text-muted">Manage books and student borrowings through a robust dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section animate__animated animate__fadeIn">
+      <div class="container">
+        <h2 class="fw-bold mb-3">Why Choose MyLibrary?</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">We combine technology and convenience to provide a seamless digital library experience. Accessible anywhere, anytime — for students, teachers, and admins alike.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center mt-auto animate__animated animate__fadeInUp">
+    <div class="container">
+      <small>© 2025 MyLibrary — A Project by Rajendra</small>
+    </div>
+  </footer>
+
+</body>
+</html>
