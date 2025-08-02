@@ -1,5 +1,6 @@
 Flask==2.3.3
-pandas==2.2.2
+pandas==2.2.3 --only-binary :all:
+numpy==2.1.0
 openpyxl==3.1.2
 supabase==1.0.3
 Werkzeug==2.3.7
